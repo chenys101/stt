@@ -1,0 +1,1 @@
+copy configs/config_demo.yaml to ./config.yaml
