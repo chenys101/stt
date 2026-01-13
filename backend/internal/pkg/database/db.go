@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/glebarez/sqlite"
 	"gorm.io/gorm"
-	"trace-stock/internal/model"
+	"backend/internal/model"
 )
 
 var DB *gorm.DB

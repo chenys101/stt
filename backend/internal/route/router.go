@@ -2,12 +2,18 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
-	"trace-stock/internal/controller"
-	"trace-stock/internal/middleware"
+	"github.com/gin-contrib/cors"
+	"backend/internal/controller"
+	"backend/internal/middleware"
 )
 
 func SetupRouter() *gin.Engine {
 	r := gin.New()
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AllowMethods = []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"}
+	config.AllowHeaders = []string{"Origin", "Content-Length", "Content-Type"}
+	r.Use(cors.New(config))
 	r.Use(middleware.ContentNegotiation())
 
 	api := r.Group("/api/v1")
@@ -17,6 +23,7 @@ func SetupRouter() *gin.Engine {
 			uc := controller.UserController{}
 			users.POST("", uc.CreateUser)
 			users.GET("/:id", uc.GetUser)
+			users.GET("", uc.ListUsers)
 		}
 		stocks := api.Group("/std")
 		{

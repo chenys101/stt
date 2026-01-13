@@ -3,12 +3,12 @@ package controller
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"trace-stock/internal/model"
-	"trace-stock/internal/pkg/app"
-	"trace-stock/internal/pkg/database"
-	"trace-stock/internal/pkg/encrypt"
-	"trace-stock/internal/pkg/strutil"
-	"trace-stock/internal/pkg/stock"
+	"backend/internal/model"
+	"backend/internal/pkg/app"
+	"backend/internal/pkg/database"
+	"backend/internal/pkg/encrypt"
+	"backend/internal/pkg/strutil"
+	"backend/internal/pkg/stock"
 	_"log"
 	_"strconv"
 )

@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"trace-stock/internal/config"
-	"trace-stock/internal/pkg/database"
-	"trace-stock/internal/route"
+	"backend/internal/config"
+	"backend/internal/pkg/database"
+	"backend/internal/route"
 )
 
 func main() {
