@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/cmd/main.go",
+      "src": "api/index.go",
       "use": "@vercel/go",
       "config": {
         "maxLambdaSize": "50mb"
@@ -19,7 +19,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/cmd/main.go"
+      "destination": "/api/index.go"
     },
     {
       "source": "/(.*)",
