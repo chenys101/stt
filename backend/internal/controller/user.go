@@ -4,9 +4,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"strings"
-	"trace-stock/internal/model"
-	"trace-stock/internal/pkg/app"
-	"trace-stock/internal/pkg/database"
+	"backend/internal/model"
+	"backend/internal/pkg/app"
+	"backend/internal/pkg/database"
 )
 
 type UserController struct{}
@@ -69,6 +69,15 @@ func (uc *UserController) GetUser(c *gin.Context) {
 	}
 
 	app.Success(c, 200, user)
+}
+
+func (uc *UserController) ListUsers(c *gin.Context) {
+	var users []model.User
+	if result := database.DB.Find(&users); result.Error != nil {
+		app.AbortWithError(c, 500, result.Error.Error())
+		return
+	}
+	app.Success(c, 200, users)
 }
 
 // GetUser, UpdateUser, DeleteUser 类似实现...

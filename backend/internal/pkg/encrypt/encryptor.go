@@ -3,7 +3,7 @@ package encrypt
 import (
 	"crypto/rsa"
 	"errors"
-	"trace-stock/internal/pkg/encrypt/algo"
+	"backend/internal/pkg/encrypt/algo"
 )
 
 // Encryptor interface
